@@ -1,0 +1,11 @@
+group 'com.zengjin.service'
+version '1.0-SNAPSHOT'
+
+bootJar {
+    baseName = "dubbo-admin"
+}
+
+dependencies {
+    implementation project(':common')
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

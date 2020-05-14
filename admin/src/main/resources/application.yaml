@@ -1,0 +1,9 @@
+spring:
+  dubbo:
+    application:
+      name: service-dubbo-provider
+      registry: zookeeper://127.0.0.1:2181
+  flyway:
+    enabled: false
+server:
+  port: 8080

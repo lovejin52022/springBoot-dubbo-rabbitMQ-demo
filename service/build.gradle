@@ -1,0 +1,17 @@
+group 'com.zengjin.service'
+version '1.0-SNAPSHOT'
+
+bootJar {
+    baseName = "dubbo-server"
+}
+
+dependencies {
+    compileOnly('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2')
+    compileOnly('com.github.pagehelper:pagehelper-spring-boot-starter:1.2.7')
+    compileOnly('tk.mybatis:mapper-spring-boot-starter:2.0.4')
+    compileOnly('tk.mybatis:mapper:4.0.4')
+
+    implementation('mysql:mysql-connector-java')
+    implementation project(':common')
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
