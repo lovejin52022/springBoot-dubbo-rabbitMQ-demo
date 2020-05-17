@@ -6,12 +6,29 @@ bootJar {
 }
 
 dependencies {
+    // migration
+    compile('org.flywaydb:flyway-core')
+
+    // 分页组件
+    compile('com.github.pagehelper:pagehelper-spring-boot-starter:1.2.7')
+
+    // mybatis
     compileOnly('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2')
-    compileOnly('com.github.pagehelper:pagehelper-spring-boot-starter:1.2.7')
     compileOnly('tk.mybatis:mapper-spring-boot-starter:2.0.4')
     compileOnly('tk.mybatis:mapper:4.0.4')
 
+    // rabbitmq
+    compile('org.springframework.boot:spring-boot-starter-amqp')
+
+    // druid
+    compile("com.alibaba:druid-spring-boot-starter:1.1.10")
+
+    // redis
+    compile('org.springframework.boot:spring-boot-starter-data-redis-reactive')
+
+    // mysql
     implementation('mysql:mysql-connector-java')
+
     implementation project(':common')
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

@@ -8,11 +8,67 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      filters: stat
+      initialSize: 1
+      minIdle: 2
+      maxActive: 200
+      maxWait: 5000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      # poolPreparedStatements:
+      # maxPoolPreparedStatementPerConnectionSize:
+      WebStatFilter:
+        enabled: true
+      #        urlPattern:
+      #        exclusions:
+      #        sessionStatMaxCount:
+      #        sessionStatEnable:
+      #        principalSessionName:
+      #        principalCookieName:
+      #        profileEnable:
+      StatViewServlet:
+        enabled: true
+        resetEnable: true
+        loginUsername: admin
+        loginPassword: admin
+        allow: 127.0.0.1
   flyway:
-    enabled: false
+    baseline-description: #
+    baseline-version: 0 # version to start migration
+    #baseline-on-migrate: #
+    check-location: true # Check that migration scripts location exists.
+    #clean-on-validation-error: #
+    enabled: true # Enable flyway.
+    #encoding: #
+    #ignore-failed-future-migration: #
+    #init-sqls: # SQL statements to execute to initialize a connection immediately after obtaining it.
+    locations: classpath:migration # locations of migrations scripts
+    sql-migration-prefix: V #
+    #sql-migration-separator: #
+    table: "migrations" #
+    validate-on-migrate: true
+    baseline-on-migrate: true
+  redis:
+    database: 0
+    port: 6379
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: springboot
+    password: 123456
+    virtual-host: /
 server:
   port: 8081
-
 mybatis:
-  mapperLocations: classpath:db/mapper/**/*.xml
+  mapperLocations: classpath:mapper/**/*.xml
   type-aliases-package:
+logging:
+  level:
+    com.zengjin.service: INFO
+    root: INFO
+    console: INFO

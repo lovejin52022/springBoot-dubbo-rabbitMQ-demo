@@ -1,4 +1,4 @@
-group 'com.zengjin.service'
+group 'com.zengjin.admin'
 version '1.0-SNAPSHOT'
 
 bootJar {
@@ -7,5 +7,9 @@ bootJar {
 
 dependencies {
     implementation project(':common')
+
+    // swagger
+    implementation("io.springfox:springfox-swagger-ui:2.9.2")
+    implementation("io.springfox:springfox-swagger2:2.9.2")
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

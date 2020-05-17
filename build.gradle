@@ -55,19 +55,35 @@ subprojects {
 
     dependencies {
 
+        // kotlin
         compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
         compile("org.jetbrains.kotlin:kotlin-reflect")
-        compile('org.springframework.boot:spring-boot-starter-web') {
-            exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
-        }
+
+        // spring boot
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile('org.springframework.boot:spring-boot-starter-security')
+
+        // 自动加载配置
         compileOnly('org.springframework.boot:spring-boot-configuration-processor')
         annotationProcessor('org.springframework.boot:spring-boot-configuration-processor')
         testCompileOnly('org.springframework.boot:spring-boot-configuration-processor')
         testAnnotationProcessor('org.springframework.boot:spring-boot-configuration-processor')
+
+        // test
         testCompile('org.springframework.boot:spring-boot-starter-test')
+
+        // java9支持
         compile('javax.xml.bind:jaxb-api:2.3.0')
+
+        // lombok
         compileOnly('org.projectlombok:lombok:1.16.20')
-        implementation('com.alibaba.spring.boot:dubbo-spring-boot-starter:2.0.0')
+
+        compileOnly("com.alibaba:fastjson:1.2.47")
+
+        // dubbo
+        implementation('com.alibaba.spring.boot:dubbo-spring-boot-starter:2.0.0') {
+            exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+        }
         implementation('com.101tec:zkclient:0.10') {
             exclude group: 'org.slf4j', module: 'slf4j-log4j12'
         }

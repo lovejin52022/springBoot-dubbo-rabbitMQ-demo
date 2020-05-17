@@ -5,7 +5,6 @@ plugins {
 jar.enabled = true
 bootJar.enabled = false
 
-group 'com.zengjin.service'
 version '1.0-SNAPSHOT'
 
 repositories {

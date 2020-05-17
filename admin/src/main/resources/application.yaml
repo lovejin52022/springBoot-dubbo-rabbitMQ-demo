@@ -1,7 +1,7 @@
 spring:
   dubbo:
     application:
-      name: service-dubbo-provider
+      name: service-dubbo-consumer
       registry: zookeeper://127.0.0.1:2181
   flyway:
     enabled: false
