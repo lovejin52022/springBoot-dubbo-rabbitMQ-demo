@@ -36,8 +36,8 @@ services:
     restart: always
     ports:
       - 2181:2181
-    admin:
-      image: apache/dubbo-admin
+  admin:
+    image: apache/dubbo-admin
       depends_on:
         - zookeeper
       ports:
